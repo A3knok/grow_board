@@ -19,7 +19,7 @@ class Post < ApplicationRecord
 		}
 
 		{
-			post_count: post_count
+			post_count: post_count,
 			# current_imageから:imageを取り出す
 			# 値が無ければ(nil)tree_seed.pngを使用
 			base_image: current_stage&.dig(:image) || "tree_seed.png",
