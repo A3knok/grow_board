@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>実らせ屋</title>
+</head>
+<body>
+  <header>
+    <h1 class="header-image">
+      <img src="" alt="">
+    </h1>
+  </header>
+
+  <main>
+    <div class="container py-4 tree-app">
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="growth-display">
+            <h2>状態：<%= @stage_name %></h2>
+            <%= image-tag @base-image, alt: @stage_name, class: "tree-image" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center nmb-4">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="post-form">
+            <%= form_width model: @post,  %>
+          </div>
+        </div>      
+      </div>
+
+    </div>
+    
+  </main>  
+</body>
+</html>

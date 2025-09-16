@@ -1,25 +1,11 @@
 class PostController < ApplicationController
     def index
-        @post_count = Post.count
-        cycle_count = @post_count % 100
+        growth_data = Post.growth_info
 
-        
-        base_image = calculate_tree_image(cycle_count)
-        @tree_image = base_image
-    end
+        @post_count = growth_data[:post_count]
+        @base_image = growth_data[:base_image]
+        @stage_name = growth_data[:stage_name]
 
-    private
-
-    def calculate_tree_image(cycle_count)
-        case cycle_count
-        when 0..9
-            "tree_seed.png"
-        when 10..19
-            "tree_small.png"
-        when 20..59
-            "tree_middle.png"
-        when 60..99
-            "tree_big.png"
-        end
+        @post = Post.new
     end
 end
