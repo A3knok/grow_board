@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>実らせ屋</title>
-</head>
-<body>
-  <header>
-    <h1 class="header-image">実らせ屋</h1>
-  </header>
+<header>
+  <h1 class="header-image">実らせ屋</h1>
+</header>
 
-  <main>
-    <div class="container py-4 tree-app">
-      <div class="row justify-content-center mb-4">
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="growth-display">
-            <h2>状態：<%= @stage_name %></h2>
-            <%= image_tag @base_image, alt: @stage_name, class: "tree-image" %>
-          </div>
-        </div>
+<main>
+  <div class="container py-4 tree-app">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type == 'success' ? 'success' : 'danger' %> alert-dismissible fade show">
+        <%= message %>        
       </div>
+    <% end %>
 
-      <div class="row justify-content-center mb-4">
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="post-form">
-            <%= form_with model: @post, local: true do |f| %>
-              <%= f.label :name %>
-              <%= f.text_field :name, class: "form-control mb-3" %>
-
-              <%= f.label :body %>
-              <%= f.text_field :body, class: "form-control mb-3" %>
-
-              <%= f.submit "実らせる", class: "btn btn-primary w-100" %>
-            <% end %>
-          </div>
-        </div>      
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="growth-display">
+          <h2>状態：<%= @stage_name %></h2>
+          <%= image_tag @base_image, alt: @stage_name, class: "tree-image" %>
         </div>
       </div>
     </div>
-  </main>  
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <% @posts.each_with_index do |post, i| %>
+          <div class="speech-bubble <%= i.even? ? 'left' : 'right' %> p-3 rounded">
+            <p class="mb-1"><%= post.name.presence || '名無し' %></p>
+            <p class="mb-1"><%= post.body.truncate(3, omission: '') %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="post-form">
+          <%= form_with model: @post, local: true do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control mb-3" %>
+
+            <%= f.label :body %>
+            <%= f.text_field :body, class: "form-control mb-3" %>
+
+            <%= f.submit "実らせる", class: "btn btn-primary w-100" %>
+          <% end %>
+        </div>
+      </div>      
+    </div>
+  </div>
+</main>  
 </body>
 </html>
