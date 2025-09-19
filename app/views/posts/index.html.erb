@@ -14,25 +14,30 @@
       <div class="col-12 col-md-8 col-lg-6">
         <div class="growth-display">
           <h2>状態：<%= @stage_name %></h2>
-          <%= image_tag @base_image, alt: @stage_name, class: "tree-image" %>
+            <div class="growth-stage-image-container p-5">
+              <%= image_tag @base_image, alt: @stage_name, class: "tree-image" %>
+            </div>
         </div>
       </div>
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
-        <% @posts.each_with_index do |post, i| %>
-          <div class="speech-bubble <%= i.even? ? 'left' : 'right' %> p-3 rounded">
-            <p class="mb-1"><%= post.name.presence || '名無し' %></p>
-            <p class="mb-1"><%= post.body.truncate(3, omission: '') %></p>
-          </div>
-        <% end %>
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="post-board">
+          <% @posts.each do |post| %>
+            <div class="speech-bubble p-1 mb-4 rounded">
+              <p class="fw-bold"><%= post.name.presence || '名無し' %></p>
+              <p><%= post.body.truncate(3, omission: '') %></p>
+            </div>
+          <% end %>          
+        </div>
       </div>
     </div>
 
     <div class="row justify-content-center mb-4">
       <div class="col-12 col-md-8 col-lg-6">
         <div class="post-form">
+          <h2 class="form-title">実らせフォーム</h2>
           <%= form_with model: @post, local: true do |f| %>
             <%= f.label :name %>
             <%= f.text_field :name, class: "form-control mb-3" %>
@@ -40,7 +45,7 @@
             <%= f.label :body %>
             <%= f.text_field :body, class: "form-control mb-3" %>
 
-            <%= f.submit "実らせる", class: "btn btn-primary w-100" %>
+            <%= f.submit "実らせる", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>      

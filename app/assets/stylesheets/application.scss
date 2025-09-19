@@ -1,0 +1,97 @@
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4ac00 !important;
+  color: #fff;
+}
+
+.btn {
+  font-size: 2rem;
+  display: block;
+  background-color: #2b2b07;
+  border-color: #2b2b07;
+  padding: 1rem;
+  margin: 3rem auto 0 ;
+}
+
+.btn:hover {
+  background-color: #a08b54;
+  border-color: #a08b54;
+}
+
+header {
+  background-color: #b63112;
+  padding: 10px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.growth-display {
+  text-align: center;
+}
+
+.growth-stage-image-container {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  margin: 1.5rem auto;
+  background-color: #eedcb3;
+  border-radius: 150px;
+}
+
+.tree-image {
+  height: 100%;
+  width: 100%;
+}
+
+.post-board {
+  padding-bottom: 3rem;
+}
+
+.speech-bubble {
+  background-color: #ffffff;
+  color: #2b2b07;
+  font-size: 2rem;
+}
+
+.speech-bubble:last-child {
+  margin-bottom: 0 !important;
+}
+
+.speech-bubble p {
+  padding: 5px 0 5px 10px;
+}
+
+.speech-bubble p:first-child {
+  color: #b63112;
+  border-bottom: solid 1px #333333;
+}
+
+.speech-bubble p:last-child {
+  padding-bottom: 0;
+}
+
+/*-----フォーム----*/
+.form-title {
+  text-align: center;
+}
+
+form label {
+  font-size: 2rem;
+}
