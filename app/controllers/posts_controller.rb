@@ -28,5 +28,6 @@ class PostsController < ApplicationController
 			@post_count = growth_data[:post_count]
 			@base_image = growth_data[:base_image]
 			@stage_name = growth_data[:stage_name]
+			@remaining_posts = growth_data[:remaining_posts]
 	end
 end
